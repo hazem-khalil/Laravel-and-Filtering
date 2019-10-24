@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Course extends Model
 {
-    public function scopeFilter(Builder $builder, $request)
+    public function scopeFilter(Builder $builder, $request, array $filters = [])
     {
-        return (new CourseFilters($request))->filter($builder);
+        return (new CourseFilters($request))->add($filters)->filter($builder);
     }
 }

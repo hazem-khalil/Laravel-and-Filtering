@@ -9,6 +9,13 @@ class CourseController extends Controller
 {
     public function index(Request $request)
     {
-        return Course::filter($request)->get();
+        return Course::filter($request, $this->getFilters())->get();
+    }
+
+    protected function getFilters()
+    {
+        return [
+            // 
+        ];
     }
 }
