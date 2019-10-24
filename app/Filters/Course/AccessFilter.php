@@ -2,7 +2,15 @@
 
 namespace App\Filters\Course;
 
-class AccessFilter
+use App\Filters\FilterAbstract;
+use Illuminate\Database\Eloquent\Builder;
+
+class AccessFilter extends FilterAbstract
 {
-    
+    public function filter(Builder $builder, $value)
+    {
+        $value = ($value === 'free' ? true : false);
+
+        return $builder->where('free', $value);
+    }    
 }
