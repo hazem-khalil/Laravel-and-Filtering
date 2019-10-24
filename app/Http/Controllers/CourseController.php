@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Course::get();
+        return Course::filter($request)->get();
     }
 }
